@@ -4,6 +4,6 @@ const square = document.createElement("div");
 
 square.classList.add("square");
 
-square.textContent = "This is the glorious text-content!";
+// square.textContent = " !";
 
 container.appendChild(square);
