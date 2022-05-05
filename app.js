@@ -1,9 +1,15 @@
 const container = document.querySelector("#container");
 
-const square = document.createElement("div");
+const square = [];
 
-square.classList.add("square");
+createGrid();
 
-// square.textContent = " !";
+function createGrid() {
+  for (let i = 0; i < 16; i++) {
+    square[0] = document.createElement("div");
 
-container.appendChild(square);
+    square[0].classList.add("square");
+
+    container.append(square[0]);
+  }
+}
