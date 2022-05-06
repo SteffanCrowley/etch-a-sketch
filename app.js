@@ -1,7 +1,6 @@
 const container = document.querySelector("#container");
 
-const square = [];
-let rows = 16;
+let rows = 25;
 
 createGrid(rows);
 
@@ -9,11 +8,12 @@ createGrid(rows);
 function createGrid(rows) {
   for (let x = 0; x < rows; x++) {
     for (let i = 0; i < rows; i++) {
-      square[0] = document.createElement("div");
+      const square = document.createElement("div");
 
-      square[0].classList.add("square");
-
-      container.append(square[0]);
+      square.classList.add("square");
+      square.style.width = `${(500 - rows * 2) / rows}px`;
+      square.style.height = `${(500 - rows * 2) / rows}px`;
+      container.append(square);
     }
   }
 }
@@ -23,8 +23,10 @@ function createGrid(rows) {
 // });
 
 function logText(e) {
-  console.log(this.classList);
-  this.setAttribute("style", "background: blue;");
+  //   console.log(this.classList);
+  this.setAttribute("style", "background: red;");
+  this.style.width = `${(500 - rows * 2) / rows}px`;
+  this.style.height = `${(500 - rows * 2) / rows}px`;
 
   e.stopPropagation();
 }

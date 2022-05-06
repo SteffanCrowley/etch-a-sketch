@@ -1,13 +1,19 @@
 .square {
-  border: 1px solid black;
-  border-radius: 2px;
-  width: 32px;
-  height: 32px;
+  border: 1px solid rgb(134, 133, 133);
+  border-radius: 1px;
   background: white;
 }
 
 #container {
-  width: 544px;
+  width: 500px;
+  height: 500px;
   display: flex;
   flex-wrap: wrap;
+}
+
+body {
+  height: 1015px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
