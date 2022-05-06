@@ -1,6 +1,15 @@
 const container = document.querySelector("#container");
+let slider = document.getElementById("myRange");
+let output = document.querySelector("#scroll-size");
 
-let rows = 25;
+let rows = slider.value;
+
+slider.oninput = function () {
+  deleteGrid();
+  rows = slider.value;
+  createGrid(rows);
+  output.textContent = "Rows: " + rows;
+};
 
 createGrid(rows);
 
@@ -8,22 +17,19 @@ createGrid(rows);
 function createGrid(rows) {
   for (let x = 0; x < rows; x++) {
     for (let i = 0; i < rows; i++) {
-      const square = document.createElement("div");
-
+      const square = document.createElement("sq");
       square.classList.add("square");
       square.style.width = `${(500 - rows * 2) / rows}px`;
       square.style.height = `${(500 - rows * 2) / rows}px`;
       container.append(square);
     }
   }
+  const divs = document.querySelectorAll("sq");
+
+  divs.forEach((sq) => sq.addEventListener("mouseover", logText));
 }
 
-// square.addEventListener("click", () => {
-//   alert("Hello World");
-// });
-
 function logText(e) {
-  //   console.log(this.classList);
   this.setAttribute("style", "background: red;");
   this.style.width = `${(500 - rows * 2) / rows}px`;
   this.style.height = `${(500 - rows * 2) / rows}px`;
@@ -31,5 +37,6 @@ function logText(e) {
   e.stopPropagation();
 }
 
-const divs = document.querySelectorAll("div");
-divs.forEach((div) => div.addEventListener("mouseover", logText));
+function deleteGrid() {
+  document.getElementById("container").innerHTML = "";
+}

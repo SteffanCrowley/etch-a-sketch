@@ -1,3 +1,11 @@
+body {
+  height: 1015px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .square {
   border: 1px solid rgb(134, 133, 133);
   border-radius: 1px;
@@ -9,11 +17,14 @@
   height: 500px;
   display: flex;
   flex-wrap: wrap;
+  margin: 50px 0;
 }
 
-body {
-  height: 1015px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#item {
+  margin: 25px;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
 }
