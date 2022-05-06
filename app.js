@@ -3,15 +3,16 @@ let slider = document.getElementById("myRange");
 let output = document.querySelector("#scroll-size");
 
 let rows = slider.value;
+createGrid(rows);
 
+//this function listens for slider movement,
+//clears grid, then makes a new one with new slider input
 slider.oninput = function () {
   deleteGrid();
   rows = slider.value;
   createGrid(rows);
   output.textContent = "Rows: " + rows;
 };
-
-createGrid(rows);
 
 //this function creates the grid
 function createGrid(rows) {
@@ -37,6 +38,7 @@ function logText(e) {
   e.stopPropagation();
 }
 
+//function to clear the grid
 function deleteGrid() {
   document.getElementById("container").innerHTML = "";
 }
