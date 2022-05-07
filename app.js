@@ -2,6 +2,13 @@ const container = document.querySelector("#container");
 let slider = document.getElementById("myRange");
 let output = document.querySelector("#scroll-size");
 
+let colorWell;
+let defaultColor = "#0000ff";
+colorWell = document.querySelector("#colorWell");
+colorWell.value = defaultColor;
+
+window.addEventListener("load", createGrid, false);
+
 let rows = slider.value;
 createGrid(rows);
 
@@ -33,7 +40,14 @@ function createGrid(rows) {
 function logText(e) {
   let x = this.style.opacity;
   let newOpacity = addAlpha(x);
-  this.setAttribute("style", `background: red; opacity:${newOpacity}`);
+
+  colorWell.addEventListener("change", updateAll, false);
+  colorWell.select();
+
+  this.setAttribute(
+    "style",
+    `background: ${colorWell.value}; opacity:${newOpacity}`
+  );
   this.style.width = `${(500 - rows * 2) / rows}px`;
   this.style.height = `${(500 - rows * 2) / rows}px`;
 
@@ -52,4 +66,10 @@ function addAlpha(opacity) {
   } else {
     return 0.2;
   }
+}
+
+function updateAll(event) {
+  document.querySelectorAll("sq").forEach(function (p) {
+    p.style.color = event.target.value;
+  });
 }

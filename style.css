@@ -28,3 +28,10 @@ body {
 .slider:hover {
   opacity: 1; /* Fully shown on mouse-over */
 }
+
+#tools {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
+}
