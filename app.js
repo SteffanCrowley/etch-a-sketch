@@ -31,7 +31,9 @@ function createGrid(rows) {
 }
 
 function logText(e) {
-  this.setAttribute("style", "background: red;");
+  let x = this.style.opacity;
+  let newOpacity = addAlpha(x);
+  this.setAttribute("style", `background: red; opacity:${newOpacity}`);
   this.style.width = `${(500 - rows * 2) / rows}px`;
   this.style.height = `${(500 - rows * 2) / rows}px`;
 
@@ -41,4 +43,13 @@ function logText(e) {
 //function to clear the grid
 function deleteGrid() {
   document.getElementById("container").innerHTML = "";
+}
+
+function addAlpha(opacity) {
+  if (opacity > 0) {
+    opacity = parseFloat(opacity) + 0.2;
+    return opacity;
+  } else {
+    return 0.2;
+  }
 }
